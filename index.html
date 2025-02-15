@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arckanjos's do Asfalto - Checklist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000; /* Fundo preto */
+            color: #fff; /* Texto branco */
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: #1e1e2f; /* Fundo azul escuro */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.8); /* Sombra escura */
+        }
+        h1 {
+            text-align: center;
+            color: #4cafef; /* Azul claro */
+            margin-bottom: 20px;
+        }
+        .section label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #4cafef; /* Azul claro */
+        }
+        .section input[type="number"],
+        .section input[type="text"],
+        .section input[type="datetime-local"],
+        .section textarea,
+        .section select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #4cafef; /* Borda azul claro */
+            border-radius: 4px;
+            background-color: #2a2a3d; /* Fundo azul escuro */
+            color: #fff;
+        }
+        .checkbox-group label {
+            color: #fff; /* Texto branco */
+        }
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 8px;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: #4cafef; /* Azul claro */
+            color: #fff; /* Texto branco */
+            text-align: center;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #357ab8; /* Azul mais escuro ao passar o mouse */
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Arckanjos's do Asfalto - Checklist</h1>
+
+       <!-- Dados do Expediente -->
+       <div class="section">
+        <label for="inicio">Início do Expediente</label>
+        <input type="datetime-local" id="inicio">
+
+        <label for="termino">Término do Expediente</label>
+        <input type="datetime-local" id="termino">
+
+        <label for="placa">Placa do Caminhão</label>
+            <select id="placa" required>
+                <option value="" disabled selected>Escolha uma placa</option>
+                <option value="EWU8F44">EWU8F44</option>
+                <option value="LQA6E03">LQA6E03</option>
+                <option value="GRR8I78">GRR8I78</option>
+                <option value="EFA4I93">EFA4I93</option>
+                <option value="SRG8J98">SRG8J98</option>
+                <option value="CQJ8C14">CQJ8C14</option>
+            </select>
+
+            <label for="carga">Tipo de Carga</label>
+            <select id="carga" required>
+                <option value="" disabled selected>Tipo de carga</option>
+                <option value="VUC">VUC</option>
+                <option value="LB">LB</option>
+            </select>
+        
+    </div>
+
+    <!-- Dados da Rota -->
+    <div class="section">
+        <label for="idRota">ID da Rota</label>
+        <input type="number" id="idRota" placeholder="Digite o ID da rota">
+
+        <label for="combustivel">Combustível (R$)</label>
+        <input type="text" id="combustivel" placeholder="Ex: R$ 100,00">
+
+        <label for="insucessas">Entregas Mal-Sucedidas</label>
+        <input type="number" id="insucessas" placeholder="Ex: 2">
+
+        <label for="recusadas">Entregas Recusadas</label>
+        <input type="number" id="recusadas" placeholder="Ex: 1">
+
+        <label for="kmInicial">Km Inicial</label>
+        <input type="number" id="kmInicial" placeholder="Digite o Km inicial">
+
+        <label for="kmFinal">Km Final</label>
+        <input type="number" id="kmFinal" placeholder="Digite o Km final">
+    </div>
+
+    <!-- Quantidades -->
+    <div class="section">
+        <label for="geladeiras">Quantidade de Geladeiras</label>
+        <input type="number" id="geladeiras" placeholder="Ex: 5">
+
+        <label for="volumosos">Quantidade de Volumosos</label>
+        <input type="number" id="volumosos" placeholder="Ex: 3">
+    </div>
+
+    <!-- Status do Veículo -->
+    <div class="section">
+        <label>Status do Veículo</label>
+        <div class="checkbox-group">
+            <label><input type="checkbox" value="Água"> Água</label>
+            <label><input type="checkbox" value="Óleo"> Óleo</label>
+            <label><input type="checkbox" value="Seta Direita"> Seta Direita</label>
+            <label><input type="checkbox" value="Seta Esquerda"> Seta Esquerda</label>
+            <label><input type="checkbox" value="Luz de Freio"> Luz de Freio</label>
+            <label><input type="checkbox" value="Farol Alto"> Farol Alto</label>
+            <label><input type="checkbox" value="Farol Baixo"> Farol Baixo</label>
+            <label><input type="checkbox" value="Limpador de Para-brisa"> Limpador de Para-brisa</label>
+            <label><input type="checkbox" value="Luz Externa do Baú"> Luz Externa do Baú</label>
+            <label><input type="checkbox" value="Luz Interna do Baú"> Luz Interna do Baú</label>
+            <label><input type="checkbox" value="Cabine Externa (Lataria)"> Cabine Externa (Lataria)</label>
+            <label><input type="checkbox" value="Retrovisor Direito"> Retrovisor Direito</label>
+            <label><input type="checkbox" value="Retrovisor Esquerdo"> Retrovisor Esquerdo</label>
+            <label><input type="checkbox" value="Baú Limpo"> Baú Limpo</label>
+            <label><input type="checkbox" value="Baú Sujo"> Baú Sujo</label>
+            <label><input type="checkbox" value="Cabine Limpa"> Cabine Limpa</label>
+            <label><input type="checkbox" value="Cabine Suja"> Cabine Suja</label>
+        </div>
+    </div>
+    
+    <!-- Observações, Ajudante e Motorista -->
+    <div class="section">
+        <label for="motorista">Motorista</label>
+            <select id="motorista" required>
+                <option value="" disabled selected>Nome motorista</option>
+                <option value="Julio">Julio</option>
+                <option value="Leonardo">Leonardo</option>
+                <option value="Ivandro">Ivandro</option>
+                <option value="Thiago">Thiago</option>
+            </select> <br><br>
+
+        <label for="ajudante">Ajudante</label>
+            <select id="ajudante" required>
+                <option value="" disabled selected>Nome ajudante</option>
+                <option value="Paulo">Paulo</option>
+                <option value="Pedro">Pedro</option>
+                <option value="Amauri">Amauri</option>
+                <option value="Andre">Andre</option>
+            </select> <br><br>
+
+        <label for="observacoes">Observações</label>
+        <textarea id="observacoes" rows="4" placeholder="Digite quaisquer observações relevantes..."></textarea>
+    </div>
+
+        <!-- Botão de Envio -->
+        <button class="btn">Enviar Checklist</button>
+    </div>
+</body>
+<script>
+    document.querySelector('.btn').addEventListener('click', async () => {
+        // Coleta os valores das checkboxes marcadas
+        const statusVeiculo = Array.from(document.querySelectorAll('.checkbox-group input[type="checkbox"]:checked'))
+            .map(checkbox => checkbox.value)
+            .join(', '); // Junta os valores em uma string separada por vírgulas
+
+        // Coleta o conteúdo do campo de observação
+        const observacoesOriginais = document.getElementById('observacoes').value;
+
+        // Concatena os valores das checkboxes ao campo de observação
+        const observacoesComCheckboxes = observacoesOriginais
+            ? `${observacoesOriginais}\nStatus do Veículo: ${statusVeiculo}`
+            : `Status do Veículo: ${statusVeiculo}`;
+
+       // Dados a serem enviados
+const data = {
+    inicio: document.getElementById('inicio').value,
+    termino: document.getElementById('termino').value,
+    placa: document.getElementById('placa').value,
+    carga: document.getElementById('carga').value,
+    idRota: document.getElementById('idRota').value, // ID da Rota
+    geladeiras: document.getElementById('geladeiras').value,
+    volumosos: document.getElementById('volumosos').value,
+    insucessas: document.getElementById('insucessas').value,
+    recusadas: document.getElementById('recusadas').value, // Entregas Recusadas
+    combustivel: document.getElementById('combustivel').value, // Combustível Consumido
+    kmInicial: document.getElementById('kmInicial').value, // Km Inicial
+    kmFinal: document.getElementById('kmFinal').value, // Km Final
+    motorista: document.getElementById('motorista').value,
+    ajudante: document.getElementById('ajudante').value,
+    observacoes: observacoesComCheckboxes, // Inclui as observações com checkboxes
+};
+
+
+        try {
+            await fetch('https://script.google.com/macros/s/AKfycbwMOPTRiW9Xgs7WlL_WlU02kmz3BADzlEj6Amlg7gC2gC0q10KucN2y-y6w5lBj_l2usw/exec', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                mode: 'no-cors', // Mantendo o modo no-cors
+                body: JSON.stringify(data),
+            });
+            alert('Checklist enviado com sucesso!');
+    
+            // Limpar todos os campos após o envio
+ document.querySelectorAll('input').forEach(input => input.value = '');
+            document.querySelectorAll('textarea').forEach(textarea => textarea.value = '');
+            document.querySelectorAll('select').forEach(select => select.selectedIndex = 0);
+            document.querySelectorAll('.checkbox-group input[type="checkbox"]').forEach(checkbox => checkbox.checked = false);
+
+        } catch (error) {
+            console.error('Erro:', error);
+            alert('Erro ao enviar checklist.');
+            console.log('Dados enviados:', data);
+        }
+    });
+</script>
+
+</html>

@@ -109,6 +109,9 @@
         <label for="combustivel">Combustível (R$)</label>
         <input type="text" id="combustivel" placeholder="Ex: R$ 100,00">
 
+        <label for="preco_combustivel">Preço Combustivel no Posto</label>
+        <input type="number" id="preco_combustivel" placeholder="Digite o valor">
+
         <label for="insucessas">Entregas Mal-Sucedidas</label>
         <input type="number" id="insucessas" placeholder="Ex: 2">
 
@@ -120,6 +123,8 @@
 
         <label for="kmFinal">Km Final</label>
         <input type="number" id="kmFinal" placeholder="Digite o Km final">
+
+        
     </div>
 
     <!-- Quantidades -->
@@ -210,6 +215,7 @@ const data = {
     insucessas: document.getElementById('insucessas').value,
     recusadas: document.getElementById('recusadas').value, // Entregas Recusadas
     combustivel: document.getElementById('combustivel').value, // Combustível Consumido
+    preco_combustivel: document.getElementById('preco_combustivel').value, // Preco Combustivel
     kmInicial: document.getElementById('kmInicial').value, // Km Inicial
     kmFinal: document.getElementById('kmFinal').value, // Km Final
     motorista: document.getElementById('motorista').value,
@@ -219,7 +225,7 @@ const data = {
 
 
         try {
-            await fetch('https://script.google.com/macros/s/AKfycbwMOPTRiW9Xgs7WlL_WlU02kmz3BADzlEj6Amlg7gC2gC0q10KucN2y-y6w5lBj_l2usw/exec', {
+            await fetch('https://script.google.com/macros/s/AKfycbybTOZRsMg0Ui8XdRX7l3uQQGhqXI5BnIoBi6Gj7SG8DXPYBgRteoM-NDU2VMaZcBHKCA/exec', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 mode: 'no-cors', // Mantendo o modo no-cors

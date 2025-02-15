@@ -203,6 +203,11 @@
             ? `${observacoesOriginais}\nStatus do Veículo: ${statusVeiculo}`
             : `Status do Veículo: ${statusVeiculo}`;
 
+        // Calcula a quantidade de litros abastecidos
+        const combustivelValor = parseFloat(document.getElementById('combustivel').value.replace('R$', '').replace(',', '.').trim());
+        const precoCombustivel = parseFloat(document.getElementById('preco_combustivel').value);
+        const litrosAbastecidos = (combustivelValor / precoCombustivel).toFixed(2);
+
        // Dados a serem enviados
 const data = {
     inicio: document.getElementById('inicio').value,
@@ -216,6 +221,7 @@ const data = {
     recusadas: document.getElementById('recusadas').value, // Entregas Recusadas
     combustivel: document.getElementById('combustivel').value, // Combustível Consumido
     preco_combustivel: document.getElementById('preco_combustivel').value, // Preco Combustivel
+    litros_abastecidos: litrosAbastecidos, // Quantidade de litros abastecidos
     kmInicial: document.getElementById('kmInicial').value, // Km Inicial
     kmFinal: document.getElementById('kmFinal').value, // Km Final
     motorista: document.getElementById('motorista').value,
@@ -223,9 +229,8 @@ const data = {
     observacoes: observacoesComCheckboxes, // Inclui as observações com checkboxes
 };
 
-
         try {
-            await fetch('https://script.google.com/macros/s/AKfycbybTOZRsMg0Ui8XdRX7l3uQQGhqXI5BnIoBi6Gj7SG8DXPYBgRteoM-NDU2VMaZcBHKCA/exec', {
+            await fetch('https://script.google.com/macros/s/AKfycbx5EbmnsTD__D1Bs8DZV5uQ3cZH56XoEozwihlOEeHUJ30HQOrUD1lphAHhF68x_bJHvQ/exec', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 mode: 'no-cors', // Mantendo o modo no-cors
@@ -245,6 +250,7 @@ const data = {
             console.log('Dados enviados:', data);
         }
     });
+
 </script>
 
 </html>

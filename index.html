@@ -182,7 +182,11 @@
         <label for="observacoes">Observações</label>
         <textarea id="observacoes" rows="4" placeholder="Digite quaisquer observações relevantes..."></textarea>
     </div>
-
+<!-- Botão para Upload de Foto -->
+<div class="section">
+    <label for="foto">Foto</label>
+    <input type="file" id="foto" accept="image/*">
+</div>
         <!-- Botão de Envio -->
         <button class="btn">Enviar Checklist</button>
     </div>
@@ -207,6 +211,34 @@
         const precoCombustivel = parseFloat(document.getElementById('preco_combustivel').value);
         const litrosAbastecidos = (combustivelValor / precoCombustivel).toFixed(2);
 
+        const fotoInput = document.getElementById('foto');
+        let fotoUrl = '';
+
+        // Função para enviar a foto para o ImgBB e obter o link público
+        async function uploadFoto(file) {
+            const formData = new FormData();
+            formData.append("image", file);
+
+            try {
+                const response = await fetch("https://api.imgbb.com/1/upload?expiration=600&key=fc70138065bf5ce76b2fe31592d342c3", {
+                    method: "POST",
+                    body: formData
+                });
+
+                const result = await response.json();
+                return result.data.url; // Retorna o link da imagem
+            } catch (error) {
+                console.error("Erro ao fazer upload da foto:", error);
+                return '';
+            }
+        }
+
+        // Verifica se o usuário adicionou uma foto e faz upload
+        if (fotoInput.files && fotoInput.files[0]) {
+            fotoUrl = await uploadFoto(fotoInput.files[0]);
+        }
+
+
        // Dados a serem enviados
 const data = {
     inicio: document.getElementById('inicio').value,
@@ -226,10 +258,11 @@ const data = {
     motorista: document.getElementById('motorista').value,
     ajudante: document.getElementById('ajudante').value,
     observacoes: observacoesComCheckboxes, // Inclui as observações com checkboxes
+    foto: fotoUrl // Link da imagem salva
 };
 
         try {
-            await fetch('https://script.google.com/macros/s/AKfycbx5EbmnsTD__D1Bs8DZV5uQ3cZH56XoEozwihlOEeHUJ30HQOrUD1lphAHhF68x_bJHvQ/exec', {
+            await fetch('https://script.google.com/macros/s/AKfycbxTEymdWY1CUZTk_8b9RWCJG__zUTQaMiNmbT7CrK1BhgDYOp7ELiyq-b53EBK08BHDsQ/exec', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 mode: 'no-cors', // Mantendo o modo no-cors
@@ -243,7 +276,6 @@ const data = {
             document.querySelectorAll('select').forEach(select => select.selectedIndex = 0);
             document.querySelectorAll('.checkbox-group input[type="checkbox"]').forEach(checkbox => checkbox.checked = false);
 
-            
         } catch (error) {
             console.error('Erro:', error);
             alert('Erro ao enviar checklist.');
